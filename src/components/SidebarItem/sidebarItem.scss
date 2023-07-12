@@ -1,0 +1,56 @@
+.sidebarItem {
+  &__text {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    position: relative;
+    transition: all 0.2s linear;
+    padding-left: 15px;
+    cursor: pointer;
+    &:hover {
+      background: #243041;
+    }
+    a {
+      color: #fff;
+      font-size: 16px;
+    }
+    img {
+      width: 20px;
+      height: auto;
+      display: block;
+    }
+    b {
+      color: #fff;
+      font-size: 25px;
+      position: absolute;
+      right: 15px;
+      bottom: -4px;
+      font-weight: 400;
+    }
+  }
+
+  &__dropdown {
+    width: 100%;
+    transition: all 0.2s linear;
+    ul {
+      padding-left: 0;
+      margin: 0;
+      li {
+        padding: 10px 0;
+        list-style: none;
+        transition: all 0.2s linear;
+        padding-left: 45px;
+        cursor: pointer;
+        &:hover {
+          background: #243041;
+        }
+        a {
+          color: #fff;
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}

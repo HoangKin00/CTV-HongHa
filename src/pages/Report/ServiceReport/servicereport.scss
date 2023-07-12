@@ -1,0 +1,97 @@
+.servicereport {
+  margin: 20px 0px 0;
+  &__box {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding-bottom: 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    position: relative;
+  }
+  &__tools {
+    display: flex;
+    align-items: center;
+  }
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    input {
+      border: 1px solid #ccc;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #888;
+    }
+    button {
+      background: #0088ff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      color: #fff;
+    }
+  }
+  &__title {
+    padding: 12px 7px;
+    border-bottom: 1px solid #dee2e6;
+    background: #f4f6f8;
+    span {
+      font-size: 18px;
+      font-weight: 400;
+      color: #0088ff;
+      margin: 0 30px;
+    }
+  }
+  &__filter {
+    margin: 30px 0 30px 40px;
+    width: 30%;
+    select {
+      width: 70%;
+      height: 37px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0 7px;
+      color: #888;
+    }
+  }
+  &__content {
+    margin: 0 40px;
+  }
+  table {
+    border: 1px solid #dee2e6;
+    text-align: left;
+    margin-bottom: 0;
+    th {
+      padding: 10px 20px;
+      background: #f4f6f8;
+      text-align: left;
+    }
+    td {
+      padding: 10px 20px;
+    }
+  }
+  &__line a {
+    color: #0088ff;
+  }
+  &__group {
+    background: #d9d9d9;
+    color: #fff;
+    z-index: 3;
+    color: #000;
+    font-weight: 500;
+    margin-top: 30px;
+    tr {
+      transition: all 0.2s linear;
+      &:hover {
+        background: #0088ff;
+        color: #fff;
+      }
+    }
+    td {
+      &:nth-child(2) {
+        width: 18%;
+      }
+      &:nth-child(3) {
+        width: 44%;
+      }
+    }
+  }
+}

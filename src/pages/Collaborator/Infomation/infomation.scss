@@ -1,0 +1,108 @@
+.infomation {
+  &__arrow {
+    color: #888;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+  }
+  &__box {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    margin-bottom: 40px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &__title {
+    padding: 20px 40px;
+    border-bottom: 1px solid #dee2e6;
+    background: #f4f6f8;
+    span {
+      font-size: 20px;
+      font-weight: 500;
+      color: #000;
+    }
+    p {
+      color: #888;
+      margin: 0;
+    }
+  }
+  &__content {
+    margin: 30px 40px;
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  &__group {
+    width: 48%;
+    label {
+      color: #888;
+      span {
+        color: red;
+      }
+    }
+    input {
+      width: 100%;
+      padding: 5px;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      transition: all 0.2s linear;
+      &:hover {
+        border: 1px solid #aaadaf;
+        // box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+      }
+      &:focus {
+        border: 1px solid #aaadaf;
+      }
+    }
+  }
+  &__submit {
+    margin: 0 40px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__pas {
+    color: #0088ff;
+    font-weight: 500;
+    font-size: 17px;
+    transition: all 0.2s linear;
+    background: #fff;
+    padding: 7px 15px;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    &:hover {
+      background: #eee;
+      border-radius: 25px;
+    }
+  }
+  &__button {
+    color: #0088ff;
+    background: #fff;
+    font-weight: 500;
+    padding: 7px 15px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    border-radius: 25px;
+    &:hover {
+      background: #eee;
+      border-radius: 25px;
+    }
+  }
+}

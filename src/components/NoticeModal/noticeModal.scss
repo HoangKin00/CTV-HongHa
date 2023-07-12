@@ -1,0 +1,51 @@
+.noticeModal {
+  background: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  &__box {
+    background: #fff;
+    border-radius: 12px;
+    margin: 18vh auto 0;
+    max-width: 400px;
+    overflow: hidden;
+    width: 90%;
+    p {
+      font-size: 18px;
+      margin: 30px 15px;
+      text-align: center;
+    }
+  }
+  &__header {
+    background: #0088ff;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  &__btn {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 30px;
+    button {
+      background: #fff;
+      border: 1px solid #227ff4;
+      border-radius: 8px;
+      color: #227ff4;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: all 0.2s linear;
+      width: 50%;
+      &:hover {
+        background: #0088ff;
+        border: 1px solid transparent;
+        color: #fff;
+      }
+    }
+  }
+}

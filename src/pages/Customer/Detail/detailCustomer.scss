@@ -1,0 +1,108 @@
+.detailCustomer {
+  &__delete {
+    padding: 20px 0;
+    text-align: right;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__name {
+    color: #000;
+    font-size: 17px;
+    b {
+      font-size: 19px;
+    }
+  }
+  &__arrow {
+    color: #888;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    &:hover {
+      color: #5e5e5e;
+    }
+  }
+  &__button {
+    color: red;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s linear;
+    background: none;
+    border: 1px solid transparent;
+    font-size: 17px;
+    padding: 0;
+  }
+  &__box {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    margin-bottom: 40px;
+    &:last-child {
+      margin: 0;
+    }
+  }
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    border-bottom: 1px solid #dee2e6;
+    background: #f4f6f8;
+    span {
+      font-size: 17px;
+      font-weight: 400;
+      color: #0088ff;
+    }
+  }
+  &__edit {
+    font-size: 17px;
+    font-weight: 400;
+    background: #0088ff;
+    padding: 5px 8px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  &__content {
+    display: flex;
+  }
+  &__info {
+    width: 50%;
+  }
+  table {
+    th,
+    td {
+      border-bottom: 1px solid #dee2e6 !important;
+      border-top: none !important;
+      padding: 10px 10px 10px 40px;
+      font-size: 16px;
+    }
+  }
+  &__service {
+    table th {
+      padding: 12px 40px;
+    }
+  }
+  &__group {
+    text-align: right;
+    margin: 20px 50px;
+    font-size: 17px;
+    button {
+      color: #fff;
+      background: #0088ff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+    }
+  }
+}

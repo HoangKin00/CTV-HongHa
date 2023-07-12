@@ -1,0 +1,17 @@
+.home {
+  width: 100%;
+  display: flex;
+  &__sidebar {
+    max-width: 230px;
+    min-width: 230px;
+  }
+  &__box {
+    width: 100%;
+  }
+  &__main {
+    background: #f4f6f8;
+    overflow-x: auto;
+    height: calc(100vh - 54px);
+    padding: 20px 80px 0;
+  }
+}

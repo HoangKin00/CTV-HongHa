@@ -1,0 +1,37 @@
+.service {
+  &__name {
+    color: #000;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: left;
+    margin: 20px 0;
+  }
+  &__box {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    margin-bottom: 40px;
+  }
+  &__content {
+    display: flex;
+    padding: 40px;
+  }
+  table {
+    border: 1px solid #dee2e6;
+    th,
+    td {
+      border-bottom: 1px solid #dee2e6 !important;
+      border-top: none !important;
+      padding: 10px 20px;
+      font-size: 16px;
+      img {
+        width: 16px;
+        height: auto;
+      }
+    }
+    th {
+      background: #f4f6f8;
+    }
+  }
+}
