@@ -1,0 +1,114 @@
+.login {
+  background: #f9f9f9;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+
+  &__box {
+    display: flex;
+    overflow: hidden;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 1px 1px 10px 0px rgb(0 0 0 / 20%);
+  }
+  &__pic {
+    width: 60%;
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+  &__detail {
+    width: 40%;
+  }
+  &__form {
+    width: 80%;
+    margin: 0 auto;
+  }
+  &__title {
+    margin-bottom: 20px;
+    span {
+      font-size: 26px;
+      text-align: left;
+      border-bottom: 3px solid #00abe6;
+      font-weight: 600;
+      color: #00abe6;
+    }
+  }
+  &__input {
+    text-align: left;
+    label {
+      color: #00abe5;
+      margin-left: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 0 0 10px;
+      border-radius: 25px;
+      border: 1px solid #00abe5;
+    }
+  }
+  &__checkbox {
+    label {
+      color: #777;
+    }
+  }
+  &__button {
+    button {
+      width: 100%;
+      background: #00abe5;
+      padding: 10px;
+      border: none;
+      margin: 10px 0 0;
+      border-radius: 25px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 18px;
+    }
+  }
+  @media (max-width: 820px) {
+    &__detail {
+      width: 50%;
+    }
+    &__title {
+      margin-bottom: 15px;
+      span {
+        font-size: 22px;
+      }
+    }
+    &__input {
+      input {
+        padding: 8px;
+        margin: 0 0 8px;
+      }
+    }
+    &__button {
+      button {
+        padding: 8px;
+      }
+    }
+    &__form {
+      width: 85%;
+    }
+  }
+  @media (max-width: 767px) {
+    height: auto;
+    .container {
+      padding: 0;
+    }
+    &__box {
+      flex-direction: column;
+    }
+    &__pic {
+      width: 100%;
+    }
+    &__detail {
+      width: 100%;
+      padding: 20px 0 30px;
+    }
+  }
+}

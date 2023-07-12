@@ -1,0 +1,60 @@
+.detailregistcontract {
+  &__arrow {
+    color: #888;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    border: 1px solid transparent;
+    font-size: 16px;
+    padding: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+  }
+  &__box {
+    background: #fff;
+    border: 1px solid #dee2e6;
+    padding-bottom: 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+  }
+  &__title {
+    padding: 12px 0;
+    border-bottom: 1px solid #dee2e6;
+    span {
+      font-size: 20px;
+      font-weight: 500;
+      color: #000;
+      margin: 0 40px;
+    }
+    p {
+      margin: 5px 0px 15px 40px;
+      color: #888;
+    }
+  }
+  &__content {
+    margin: 30px 40px;
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__submit {
+    text-align: right;
+    margin: 0 50px;
+  }
+  &__button {
+    background: #0088ff;
+    color: #fff;
+    font-weight: 500;
+    padding: 7px 15px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

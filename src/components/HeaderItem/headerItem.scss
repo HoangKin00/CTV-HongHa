@@ -1,0 +1,14 @@
+.headerItem__menu {
+  list-style: none;
+  padding: 5px 10px;
+  background: #fff;
+  border-radius: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  &:hover {
+    background: #0088ff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+}
