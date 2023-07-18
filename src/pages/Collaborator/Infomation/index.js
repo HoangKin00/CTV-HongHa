@@ -34,9 +34,11 @@ const Infomation = () => {
         Quay lại
       </Link>
       <div className='infomation__box'>
-        <div className='infomation__title'>
-          <span>Thông tin tài khoản</span>
-          <p>Các thông tin cơ bản của tài khoản đang đăng nhập hệ thống</p>
+        <div className='infomation__header'>
+          <div className='infomation__title'>
+            <span>Thông tin tài khoản</span>
+            <p>Các thông tin cơ bản của tài khoản đang đăng nhập hệ thống</p>
+          </div>
         </div>
         <div className='infomation__content'>
           <Input
@@ -123,8 +125,10 @@ const Infomation = () => {
         </div>
       </div>
       <div className='infomation__box'>
-        <div className='infomation__title'>
-          <span>Đặt lại mật khẩu</span>
+        <div className='infomation__header'>
+          <div className='infomation__title'>
+            <span>Đặt lại mật khẩu</span>
+          </div>
         </div>
         <div className='infomation__content'>
           <Input

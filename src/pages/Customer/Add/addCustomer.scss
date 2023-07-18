@@ -13,25 +13,27 @@
     border: 1px solid transparent;
     font-size: 16px;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     gap: 5px;
     background: none;
   }
-  &__title {
-    padding: 12px 0;
+  &__header {
     border-bottom: 1px solid #dee2e6;
     background: #f4f6f8;
-    span {
-      font-size: 18px;
-      font-weight: 400;
-      color: #0088ff;
-      margin: 0 40px;
-    }
+  }
+  &__title {
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: 400;
+    color: #0088ff;
+    width: 95%;
+    margin: 0 auto;
   }
   &__content {
-    margin: 30px 40px;
+    width: 95%;
+    margin: 25px auto;
   }
   &__content {
     display: flex;
@@ -74,7 +76,8 @@
   }
   &__submit {
     text-align: right;
-    margin: 0 50px;
+    width: 95%;
+    margin: 0 auto;
   }
   &__button {
     background: #0088ff;
@@ -84,5 +87,24 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+  }
+  @media (max-width: 1180px) {
+    &__title {
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 767px) {
+    &__content {
+      margin: 15px auto;
+    }
+  }
+  @media (max-width: 425px) {
+    &__content {
+      margin: 10px auto;
+      gap: 5px;
+    }
+    .input {
+      width: 100%;
+    }
   }
 }

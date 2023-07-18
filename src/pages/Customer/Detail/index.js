@@ -23,9 +23,11 @@ const DetailCustomer = () => {
           </button>
         </div>
         <div className='detailCustomer__box'>
-          <div className='detailCustomer__title'>
-            <span>Thông tin cá nhân</span>
-            <div className='detailCustomer__edit'>Cập nhật</div>
+          <div className='detailCustomer__header'>
+            <div className='detailCustomer__title'>
+              <span>Thông tin cá nhân</span>
+              <div className='detailCustomer__edit'>Cập nhật</div>
+            </div>
           </div>
           <div className='detailCustomer__content'>
             <div className='detailCustomer__info'>
@@ -79,8 +81,10 @@ const DetailCustomer = () => {
           </div>
         </div>
         <div className='detailCustomer__box'>
-          <div className='detailCustomer__title'>
-            <span>Thông tin dịch vụ</span>
+          <div className='detailCustomer__header'>
+            <div className='detailCustomer__title'>
+              <span>Thông tin dịch vụ</span>
+            </div>
           </div>
           <div className='detailCustomer__service'>
             <table className='table'>

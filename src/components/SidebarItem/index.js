@@ -7,6 +7,7 @@ const SidebarItem = (props) => {
   const handleOpenDropdown = () => {
     setIsDropdown(!isDropdown);
   };
+
   return (
     <>
       {props.dropdown.length === 0 ? (
