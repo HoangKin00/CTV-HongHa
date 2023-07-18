@@ -12,6 +12,7 @@ const CustomerList = (props) => {
       <td>{props.name}</td>
       <td>{props.phone}</td>
       <td>{props.address}</td>
+      <td>{props.gender}</td>
       <td>{props.group}</td>
       <td>{props.created_at}</td>
     </tr>
