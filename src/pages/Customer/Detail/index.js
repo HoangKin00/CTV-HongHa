@@ -242,8 +242,10 @@ const DetailCustomer = () => {
           </div>
         </div>
         <div className='detailCustomer__box'>
-          <div className='detailCustomer__title'>
-            <span>Thông tin dịch vụ</span>
+          <div className='detailCustomer__header'>
+            <div className='detailCustomer__title'>
+              <span>Thông tin dịch vụ</span>
+            </div>
           </div>
           <div className='detailCustomer__service'>
             <table className='table'>

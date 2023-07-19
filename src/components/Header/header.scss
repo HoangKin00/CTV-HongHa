@@ -6,11 +6,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 50px;
+    width: 95%;
+    margin: 0 auto;
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
   }
   &__des {
     font-size: 19px;
     font-weight: 600;
+    img {
+      display: none;
+    }
+  }
+  &__click {
+    font-size: 19px;
+    font-weight: 600;
+    img {
+      display: none;
+    }
   }
   &__content {
     display: flex;
@@ -51,6 +66,23 @@
     ul {
       padding: 0;
       margin: 10px 0px;
+    }
+  }
+  @media (max-width: 1180px) {
+    &__des {
+      z-index: 6;
+      position: absolute;
+      img {
+        display: block;
+      }
+    }
+    &__click {
+      display: none;
+    }
+  }
+  @media (max-width: 320px) {
+    &__box {
+      width: 91%;
     }
   }
 }

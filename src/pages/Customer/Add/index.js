@@ -24,8 +24,8 @@ const AddCustomer = () => {
         Quay lại
       </Link>
       <div className='addCustomer__box'>
-        <div className='addCustomer__title'>
-          <span>Thêm mới khách hàng</span>
+        <div className='addCustomer__header'>
+          <div className='addCustomer__title'>Thêm mới khách hàng</div>
         </div>
         <div className='addCustomer__content'>
           <Input name='name' title={'Họ và tên'} value={info.name} handleValue={handleInfo} require={true} />

@@ -17,9 +17,11 @@ const Contract = () => {
         <Registercontract />
       ) : (
         <div className='contract__box'>
-          <div className='contract__title'>
-            <span>Thông tin hợp đồng</span>
-            <p>Bạn đã ký hợp đồng với chúng tôi</p>
+          <div className='contract__header'>
+            <div className='contract__title'>
+              <span>Thông tin hợp đồng</span>
+              <p>Bạn đã ký hợp đồng với chúng tôi</p>
+            </div>
           </div>
           <div className='contract__content'>
             <div className='contract__group'>
@@ -57,6 +59,7 @@ const Contract = () => {
             <b>Chi tiết hợp đồng</b> <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab tempore tenetur cum voluptatum quia veniam,
             assumenda, at praesentium in amet illo impedit dolor, natus iusto ad dolorem. Maiores, perferendis placeat?
+            <img src={`${PUBLIC_URL}/images/login.jpg`} alt='' />
           </div>
         </div>
       )}

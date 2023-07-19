@@ -4,6 +4,9 @@
   padding: 0;
   display: flex;
   gap: 3px;
+  @media (max-width: 280px) {
+    width: 100%;
+  }
 }
 .pagination > li {
   cursor: pointer;

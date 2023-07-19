@@ -81,14 +81,16 @@ const Customer = () => {
 
   return (
     <div className='customer'>
-      <div className='customer__add'>
-        {/* <Link to={`/add-customer`} className='customer__button'>
-          + Thêm khách hàng
-        </Link> */}
-      </div>
       <div className='customer__box'>
-        <div className='customer__title'>
-          <span>Tất cả khách hàng</span>
+        <div className='customer__header'>
+          <div className='customer__title'>
+            <span>Tất cả khách hàng</span>
+            <div className='customer__add'>
+              {/* <Link to={`/add-customer`} className='customer__button'>
+                + Thêm khách hàng
+              </Link> */}
+            </div>
+          </div>
         </div>
         <div className='customer__tools'>
           <div className='customer__search'>
@@ -105,6 +107,12 @@ const Customer = () => {
               <option value='Không thành công'>Không thành công</option>
             </select>
           </div>
+          <div className='customer__date'>
+            <b>Chọn ngày</b>
+            <input type='date' name='txtDate' id='txtDate' min='2000-01-01' />
+            <input type='date' name='txtDate' id='txtDate' min='2000-01-01' />
+            <button>Áp dụng</button>
+          </div>
         </div>
         <div className='customer__content'>
           <DataTable columns={columns} data={data} highlightOnHover pagination customStyles={customStyles} />
@@ -115,6 +123,7 @@ const Customer = () => {
                 <th>Tên KH</th>
                 <th>Số điện thoại</th>
                 <th>Địa chỉ</th>
+                <th>Giới tính</th>
                 <th>Nhóm KH</th>
                 <th>Ngày tạo</th>
               </tr>
@@ -123,9 +132,10 @@ const Customer = () => {
               ))}
             </tbody>
           </table>
-          <div className='customer__pagination'>
-            <Pagination pageCount={10} pageNum={10} range={6} />
-          </div> */}
+        </div>
+        <div className='customer__pagination'>
+          <Pagination pageCount={5} pageNum={5} range={6} />
+        </div>*/}
         </div>
       </div>
     </div>
