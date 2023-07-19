@@ -1,6 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { PUBLIC_URL } from '../../utils/const';
 import './service.scss';
 
 const Service = () => {

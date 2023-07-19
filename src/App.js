@@ -13,6 +13,7 @@ import DetailCustomer from './pages/Customer/Detail';
 import Login from './pages/Login';
 import Financialreport from './pages/Report/FinancialReport';
 import Servicereport from './pages/Report/ServiceReport';
+import CustomerSuccess from './pages/CustomerSuccess';
 
 function App() {
   return (
@@ -22,8 +23,10 @@ function App() {
       <Route path={`/`} element={<Home />}>
         <Route path={`/`} element={<Navigate to={`/customer-list`} />} />
         <Route path={`/customer-list`} element={<Customer />} />
+        <Route path={`/customer-success`} element={<CustomerSuccess />} />
         <Route path={`/add-customer`} element={<AddCustomer />} />
         <Route path={`/detail-customer/:id`} element={<DetailCustomer />} />
+        <Route path={`/detail-customer-success/:id`} element={<DetailCustomer />} />
 
         {/* // */}
 

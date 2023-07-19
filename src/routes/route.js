@@ -7,6 +7,12 @@ export const menu = [
     dropdown: [],
   },
   {
+    name: 'Khách hàng thành công',
+    icon: `${PUBLIC_URL}/icons/customer.svg`,
+    link: '/customer-success',
+    dropdown: [],
+  },
+  {
     name: 'Dịch vụ',
     icon: `${PUBLIC_URL}/icons/service.svg`,
     link: '/service-list',

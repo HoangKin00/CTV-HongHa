@@ -5,24 +5,26 @@ import './customer.scss';
 // import { customerList } from '../../routes/route';
 // import CustomerList from '../../components/CustomerList';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { useGetBooking } from '../../services/bookingService';
 import DataTable from 'react-data-table-component';
 import { customStyles } from '../../utils/styleCustomTable';
+import { formatMoney } from '../../utils/formatMoney';
 import { useNavigate } from 'react-router-dom';
+import { useGetInvoice } from '../../services/invoiceService';
 
-const Customer = () => {
+const CustomerSuccess = () => {
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('');
   const [data, setData] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
   const navigate = useNavigate();
-  const { dataBooking, isSuccessBooking } = useGetBooking(token);
+  const { dataInvoice, isSuccessInvoice } = useGetInvoice(token);
+  console.log("dataInvoice: ", dataInvoice);
   useEffect(() => {
-    if (isSuccessBooking) {
-      setData(dataBooking.data.result.data)
+    if (isSuccessInvoice) {
+      setData(dataInvoice.data.result)
     }
-  }, [isSuccessBooking, dataBooking]);
+  }, [isSuccessInvoice, dataInvoice]);
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
@@ -33,7 +35,7 @@ const Customer = () => {
       });
       setData(dataFilter);
     } else {
-      setData(dataBooking.data.result.data);
+      setData(dataInvoice.data.result);
     }
   }
   const handleSubmitFilter = (e) => {
@@ -44,36 +46,32 @@ const Customer = () => {
       });
       setData(dataFilter);
     } else {
-      setData(dataBooking.data.result.data);
+      setData(dataInvoice.data.result);
     }
   }
   const readMore = (id) => {
-    navigate(`/detail-customer/${id}`);
+    navigate(`/detail-customer-success/${id}`);
   }
   const columns = [
     {
       name: 'Mã KH',
-      selector: (row) => row.code,
+      selector: (row) => row.revenue_book,
     },
     {
       name: 'Họ và tên',
       selector: (row) => row.name,
     },
     {
-      name: 'Số điện thoại',
-      selector: (row) => row.phone,
+      name: 'Trạng thái',
+      selector: (row) => row.stage,
     },
     {
-      name: 'Nhóm KH',
-      selector: (row) => row.status,
-    },
-    {
-      name: 'Ngày tạo',
-      selector: (row) => new Date(row.reception_date).toLocaleDateString('en-GB'),
+      name: 'Tổng tiền',
+      selector: (row) => formatMoney(row.amount),
     },
     {
       name: 'Hành động',
-      cell: (row) => <button onClick={() => readMore(row.code)}>Xem thêm</button>,
+      cell: (row) => <button onClick={() => readMore(row.revenue_book)}>Xem thêm</button>,
       right: true,
       grow: 0.5
     },
@@ -88,7 +86,7 @@ const Customer = () => {
       </div>
       <div className='customer__box'>
         <div className='customer__title'>
-          <span>Tất cả khách hàng</span>
+          <span>Khách hàng thành công</span>
         </div>
         <div className='customer__tools'>
           <div className='customer__search'>
@@ -132,4 +130,4 @@ const Customer = () => {
   );
 };
 
-export default Customer;
+export default CustomerSuccess;
