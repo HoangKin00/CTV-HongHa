@@ -13,7 +13,7 @@ const Service = () => {
       <div className='service__box'>
         <div className='service__header'>
           <div className='service__title'>
-            <span>Tất cả dịch vụ</span>
+            <span>Danh sách payment</span>
           </div>
         </div>
         <div className='service__tools'>
@@ -28,39 +28,40 @@ const Service = () => {
           <table className='table'>
             <tbody>
               <tr>
-                <th>STT</th>
-                <th>Tên dịch vụ</th>
-                <th>Giá gốc</th>
-                <th>Giá KM</th>
-                <th>Hoa hồng</th>
+                <th>Mã booking</th>
+                <th>Tên</th>
+                <th>Tiền thanh toán</th>
+                <th>Đơn vị tiền tệ</th>
+                <th>Trạng thái phiếu</th>
+                <th>Hình thức thanh toán</th>
+                <th>Loại thanh toán</th>
               </tr>
               <tr>
-                <td>1</td>
-                <td>Cắt mí</td>
+                <td>00102</td>
+                <td>Nguyễn Văn An</td>
                 <td>10.000.000</td>
-                <td>6.000.000</td>
-                <td>600.000</td>
+                <td>VND</td>
+                <td>Đang xử lý</td>
+                <td>Tiền mặt</td>
+                <td>Hoa hồng</td>
               </tr>
               <tr>
-                <td>1</td>
-                <td>Cắt mí</td>
+                <td>00103</td>
+                <td>Nguyễn Văn An 1</td>
                 <td>10.000.000</td>
-                <td>6.000.000</td>
-                <td>600.000</td>
+                <td>VND</td>
+                <td>Đang xử lý</td>
+                <td>Tiền mặt</td>
+                <td>Hoa hồng</td>
               </tr>
               <tr>
-                <td>1</td>
-                <td>Cắt mí</td>
+                <td>00104</td>
+                <td>Nguyễn Văn An 2</td>
                 <td>10.000.000</td>
-                <td>6.000.000</td>
-                <td>600.000</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Cắt mí</td>
-                <td>10.000.000</td>
-                <td>6.000.000</td>
-                <td>600.000</td>
+                <td>VND</td>
+                <td>Đang xử lý</td>
+                <td>Tiền mặt</td>
+                <td>Hoa hồng</td>
               </tr>
             </tbody>
           </table>

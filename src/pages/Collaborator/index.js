@@ -1,26 +1,143 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './infomation.scss';
 import { PUBLIC_URL } from '../../utils/const';
-import './collaborator.scss';
+import Input from '../../components/Input';
 
-const Collaborator = () => {
+const data = {
+  name: 'Phạm Thanh Hoa',
+  phone: '0987654321',
+  email: 'hoa@gmail.com',
+  address: 'Hà Nội',
+  gender: 'Nữ',
+  rank: 'Hạng A',
+  manager: 'Nguyễn Văn B',
+  date: '22/01/2022',
+};
+const Infomation = () => {
+  const [isEditInfo, setIsEditInfo] = useState(true);
+  const [info, setInfo] = useState(data);
+  const [password, setPassword] = useState({ password: '', newPassword: '', retypePassword: '' });
+  const handleInfo = (e) => {
+    setInfo({ ...info, [e.target.name]: e.target.value });
+  };
+  const handlePassword = (e) => {
+    setPassword({ ...password, [e.target.name]: e.target.value });
+  };
+  const handleIsEditInfo = () => {
+    setIsEditInfo(!isEditInfo);
+  };
   return (
-    <div className='collaborator'>
-      <div className='collaborator__title'>
-        <span>Thông tin</span>
+    <div className='infomation'>
+      <Link to={`/customer-list`} className='infomation__arrow'>
+        <img src={`${PUBLIC_URL}/icons/arrow.svg`} alt='' />
+        Quay lại
+      </Link>
+      <div className='infomation__box'>
+        <div className='infomation__header'>
+          <div className='infomation__title'>
+            <span>Thông tin tài khoản</span>
+            <p>Các thông tin cơ bản của tài khoản đang đăng nhập hệ thống</p>
+          </div>
+        </div>
+        <div className='infomation__content'>
+          <Input
+            name='name'
+            title={'Họ và tên'}
+            value={info.name}
+            handleValue={handleInfo}
+            disable={isEditInfo}
+            require={false}
+          />
+          <Input
+            name='phone'
+            title={'Số điện thoại'}
+            value={info.phone}
+            handleValue={handleInfo}
+            disable={isEditInfo}
+            require={false}
+          />
+          <Input
+            name='email'
+            type='email'
+            title={'Email'}
+            value={info.email}
+            handleValue={handleInfo}
+            disable={isEditInfo}
+            require={false}
+          />
+          <Input
+            name='address'
+            title={'Địa chỉ'}
+            value={info.address}
+            handleValue={handleInfo}
+            disable={isEditInfo}
+            require={false}
+          />
+          <Input
+            name='gender'
+            title={'Giới tính'}
+            value={info.gender}
+            handleValue={handleInfo}
+            disable={isEditInfo}
+            require={false}
+          />
+          <Input
+            name='date'
+            title={'Ngày vào'}
+            value={info.date}
+            handleValue={handleInfo}
+            disable={isEditInfo}
+            require={false}
+          />
+        </div>
+        <div className='infomation__submit'>
+          {isEditInfo ? (
+            <button className='infomation__button' onClick={handleIsEditInfo}>
+              Chỉnh sửa
+            </button>
+          ) : (
+            <div className='infomation__control'>
+              <button className='infomation__button' onClick={handleIsEditInfo}>
+                Hủy bỏ
+              </button>
+              <button className='infomation__button' onClick={handleIsEditInfo}>
+                Cập nhật
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-      <div className='collaborator__box'>
-        <Link to={`/infomation`} className='collaborator__item'>
-          <img src={`${PUBLIC_URL}/icons/info.svg`} alt='' />
-          <p>Thông tin tài khoản</p>
-        </Link>
-        <Link to={`/contract`} className='collaborator__item'>
-          <img src={`${PUBLIC_URL}/icons/contract.svg`} alt='' />
-          <p>Hợp đồng</p>
-        </Link>
+      <div className='infomation__box'>
+        <div className='infomation__header'>
+          <div className='infomation__title'>
+            <span>Đặt lại mật khẩu</span>
+          </div>
+        </div>
+        <div className='infomation__content'>
+          <Input
+            name='newPassword'
+            title={'Mật khẩu mới'}
+            value={password.newPassword}
+            handleValue={handlePassword}
+            disable={false}
+            require={true}
+          />
+          <Input
+            name='retypePassword'
+            title={'Nhập lại mật khẩu'}
+            value={password.retypePassword}
+            handleValue={handlePassword}
+            disable={false}
+            require={true}
+          />
+        </div>
+        <div className='infomation__submit'>
+          <button className='infomation__button'>Cập nhật</button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Collaborator;
+export default Infomation;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { PUBLIC_URL } from '../../utils/const';
 import './sidebar.scss';
@@ -15,18 +15,22 @@ const Sidebar = ({ isActive }) => {
             <img src={`${PUBLIC_URL}/icons/customer.svg`} alt='' />
             Khách hàng
           </Link>
+          <Link to={'/booking'} className='sidebar__text'>
+            <img src={`${PUBLIC_URL}/icons/customer.svg`} alt='' />
+            Booking
+          </Link>
           <Link to={'/service-list'} className='sidebar__text'>
             <img src={`${PUBLIC_URL}/icons/service.svg`} alt='' />
-            Dịch vụ
+            Payment
           </Link>
           <Link to={'/report-service'} className='sidebar__text'>
             <img src={`${PUBLIC_URL}/icons/report.svg`} alt='' />
-            Báo cáo Dịch vụ
+            Phiếu chi hoa hồng
           </Link>
-          <Link to={'/report-finance'} className='sidebar__text'>
+          {/* <Link to={'/report-finance'} className='sidebar__text'>
             <img src={`${PUBLIC_URL}/icons/report.svg`} alt='' />
             Báo cáo Tài chính
-          </Link>
+          </Link> */}
         </ul>
       </div>
     </div>

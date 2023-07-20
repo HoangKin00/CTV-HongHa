@@ -12,7 +12,7 @@ const Servicereport = () => {
       <div className='servicereport__box'>
         <div className='servicereport__header'>
           <div className='servicereport__title'>
-            <span>Báo cáo dịch vụ</span>
+            <span>Danh sách phiếu chi hoa hồng</span>
           </div>
         </div>
         <div className='servicereport__tools'>
@@ -42,73 +42,33 @@ const Servicereport = () => {
             <tbody>
               <tr>
                 <th>STT</th>
-                <th>Dịch vụ</th>
-                <th>Số lượng</th>
-                <th>Doanh thu</th>
-                <th>Ngày làm</th>
+                <th>Trạng thái</th>
+                <th>Ghi chú</th>
+                <th>Số tiền chi</th>
               </tr>
               <tr>
                 <td>1</td>
-                <td>Cắt mí plasma</td>
-                <td>1</td>
-                <td>10.000.000</td>
-                <td>01/01/2023</td>
+                <td>Đang xử lý</td>
+                <td>Trống</td>
+                <td>100.000 VND</td>
               </tr>
               <tr>
                 <td>2</td>
-                <td>Nâng ngực</td>
-                <td>1</td>
-                <td>30.000.000</td>
-                <td>01/01/2023</td>
+                <td>Đang xử lý</td>
+                <td>Trống</td>
+                <td>100.000 VND</td>
               </tr>
               <tr>
                 <td>3</td>
-                <td>Nâng mũi</td>
-                <td>2</td>
-                <td>60.000.000</td>
-                <td>01/01/2023</td>
+                <td>Đang xử lý</td>
+                <td>Trống</td>
+                <td>100.000 VND</td>
               </tr>
               <tr>
                 <td>4</td>
-                <td>Cắt mí plasma</td>
-                <td>1</td>
-                <td>10.000.000</td>
-                <td>01/01/2023</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>Nâng ngực</td>
-                <td>1</td>
-                <td>30.000.000</td>
-                <td>01/01/2023</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>Nâng mũi</td>
-                <td>2</td>
-                <td>60.000.000</td>
-                <td>01/01/2023</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>Cắt mí plasma</td>
-                <td>1</td>
-                <td>10.000.000</td>
-                <td>01/01/2023</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>Nâng ngực</td>
-                <td>1</td>
-                <td>30.000.000</td>
-                <td>01/01/2023</td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>Nâng mũi</td>
-                <td>2</td>
-                <td>60.000.000</td>
-                <td>01/01/2023</td>
+                <td>Đang xử lý</td>
+                <td>Trống</td>
+                <td>100.000 VND</td>
               </tr>
             </tbody>
           </table>
@@ -117,7 +77,8 @@ const Servicereport = () => {
               <tbody>
                 <tr>
                   <td>Tổng</td>
-                  <td>4</td>
+                  <td></td>
+                  <td></td>
                   <td>100.000.000</td>
                 </tr>
               </tbody>

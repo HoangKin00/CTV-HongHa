@@ -1,13 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import './customerlist.scss';
 const CustomerList = (props) => {
-  const navigate = useNavigate();
-  const handleDetail = () => {
-    navigate(`/detail-customer/${props.id}`);
-  };
+  // const navigate = useNavigate();
+  // const handleDetail = () => {
+  //   navigate(`/detail-customer/${props.id}`);
+  // };
   return (
-    <tr className='customerlist' onClick={handleDetail}>
+    <tr className='customerlist'>
       <td>{props.id}</td>
       <td>{props.name}</td>
       <td>{props.phone}</td>

@@ -1,36 +1,35 @@
 import React, { useState } from 'react';
 import { PUBLIC_URL } from '../../utils/const';
 import Pagination from '../../components/Pagination';
-import './customer.scss';
-import { customerList } from '../../routes/route';
+import {  customerListBooking } from '../../routes/route';
 import CustomerList from '../../components/CustomerList';
 
-const Customer = () => {
+const Booking = () => {
   const [search, setSearch] = useState('');
-  // const [filter, setFilter] = useState('');
+  const [filter, setFilter] = useState('');
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
-  // const handleFilter = (e) => {
-  //   setFilter(e.target.value);
-  // };
+  const handleFilter = (e) => {
+    setFilter(e.target.value);
+  };
 
   return (
     <div className='customer'>
       <div className='customer__box'>
         <div className='customer__header'>
           <div className='customer__title'>
-            <span>Danh sách khách hàng</span>
+            <span>Danh sách booking</span>
           </div>
         </div>
         <div className='customer__tools'>
           <div className='customer__search'>
-            <input onChange={handleSearch} value={search} name='search' type='text' placeholder='Tìm kiếm tên ...' />
+            <input onChange={handleSearch} value={search} name='search' type='text' placeholder='Tìm kiếm ...' />
             <button>
               <img src={`${PUBLIC_URL}/icons/search.png`} alt='' />
             </button>
           </div>
-          {/* <div className='customer__filter'>
+          <div className='customer__filter'>
             <select name='filter' onChange={handleFilter} value={filter}>
               <option value='Tất cả khách hàng'>Tất cả khách hàng</option>
               <option value='Đến cửa'>Đến cửa</option>
@@ -43,20 +42,21 @@ const Customer = () => {
             <input type='date' name='txtDate' id='txtDate' min='2000-01-01' />
             <input type='date' name='txtDate' id='txtDate' min='2000-01-01' />
             <button>Áp dụng</button>
-          </div> */}
+          </div>
         </div>
         <div className='customer__content'>
           <table className='table'>
             <tbody>
               <tr>
                 <th>Tên</th>
-                <th>Số điện thoại 1</th>
-                <th>Số điện thoại 2</th>
-                <th>Giới tính</th>
-                <th>Ngày sinh</th>
-                <th>Địa chỉ</th>
+                <th>Trạng thái</th>
+                <th>Ngày đến cửa</th>
+                <th>Danh sách dịch vụ</th>
+                <th>Tiền đã thu</th>
+                <th>Tiền chi phí</th>
+                <th>Tiền miễn giảm</th>
               </tr>
-              {customerList.map((item) => (
+              {customerListBooking.map((item) => (
                 <CustomerList key={item.name} {...item} />
               ))}
             </tbody>
@@ -70,4 +70,4 @@ const Customer = () => {
   );
 };
 
-export default Customer;
+export default Booking;

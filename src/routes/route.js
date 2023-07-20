@@ -25,7 +25,7 @@ export const menu = [
 export const dropdownheader = [
   {
     name: 'Thông tin cá nhân',
-    link: `/collaborator`,
+    link: `/infomation`,
   },
   {
     name: 'Đăng xuất',
@@ -35,34 +35,58 @@ export const dropdownheader = [
 
 export const customerList = [
   {
-    id: 'kn123',
-    name: 'Nguyễn Hạ Vy',
+    id: 'Nguyễn Hạ Vy',
+    name: '0987654321',
     phone: '0987654321',
-    address: 'Hà Nội',
-    gender: 'Nữ',
-    group: 'Đến cửa',
-    created_at: '02/03/2023',
-    link: `/detail-customer`,
+    address:  'Nữ',
+    gender: '02/03/2023',
+    group:  'Hà Nội',
   },
   {
-    id: 'kn456',
-    name: 'Nguyễn Văn B',
+    id: 'Nguyễn Văn B',
+    name: '0987654321',
     phone: '0987654321',
-    address: 'Hà Nam',
-    gender: 'Nam',
-    group: 'Thành công',
-    created_at: '02/03/2023',
-    llink: `/detail-customer`,
+    address:  'Nam',
+    gender: '02/03/2023',
+    group:  'Hà Nội',
   },
   {
-    id: 'kn545',
-    name: 'Mai Thị Hiền',
+    id: 'Mai Thị Hiền',
+    name: '0987654321',
     phone: '0987654321',
-    address: 'Nam Định',
-    gender: 'Nữ',
-    group: 'Không thành công',
-    created_at: '02/03/2023',
-    link: `/detail-customer`,
+    address:  'Nữ',
+    gender: '02/03/2023',
+    group:  'Hà Nội',
+  },
+];
+
+export const customerListBooking = [
+  {
+    id: 'Nguyễn Hạ Vy',
+    name: 'Đến cửa',
+    phone: '02/03/2023',
+    address:  'Chi tiết',
+    gender: '100.000 VND',
+    group:  '200.000 VND',
+    created_at:  '50.000 VND',
+  },
+  {
+    id: 'Nguyễn Hạ Vy 1',
+    name: 'Đến cửa',
+    phone: '02/03/2023',
+    address:  'Chi tiết',
+    gender: '100.000 VND',
+    group:  '200.000 VND',
+    created_at:  '50.000 VND',
+  },
+  {
+    id: 'Nguyễn Hạ Vy 2',
+    name: 'Đến cửa',
+    phone: '02/03/2023',
+    address:  'Chi tiết',
+    gender: '100.000 VND',
+    group:  '200.000 VND',
+    created_at:  '50.000 VND',
   },
 ];
 
