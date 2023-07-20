@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PUBLIC_URL } from '../../utils/const';
 import { dropdownheader } from '../../routes/route';
 import HeaderItem from '../HeaderItem';

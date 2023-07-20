@@ -5,6 +5,7 @@ import Registercontract from '../Registercontract';
 import './contract.scss';
 
 const Contract = () => {
+  // eslint-disable-next-line no-unused-vars
   const [isContract, setIsContract] = useState(false);
   return (
     <div className='contract'>
