@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { getTokenFn } from "../api/auth";
+import { changePasswordFn, getTokenFn } from "../api/auth";
 
 
 export function useLogin() {
@@ -11,4 +11,11 @@ export function useLogin() {
         }
     });
     return { mutateLogin, isLoadingLogin, isSuccessLogin }
+}
+
+export function useChangePassword() {
+    const { mutate: mutateChangePassword, isLoading: isLoadingChangePassword, isSuccess: isSuccessChangePassword } = useMutation({
+        mutationFn: (body) => changePasswordFn(body),
+    });
+    return { mutateChangePassword, isLoadingChangePassword, isSuccessChangePassword }
 }

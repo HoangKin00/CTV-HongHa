@@ -5,5 +5,7 @@ export const getTokenFn = async (body) => {
 };
 
 export const changePasswordFn = async (body) => {
-    return await http.post(`/v1/change-password`, JSON.stringify(body))
+    return await http.post(`/v1/change-password`, JSON.stringify(body), {
+        headers: { Authorization: body.token }
+    })
 };

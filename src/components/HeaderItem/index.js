@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './headerItem.scss';
 const HeaderItem = (props) => {
-  console.log("props: ", props);
   const handleLogout = () => {
     if(props.name === 'Đăng xuất'){
       localStorage.removeItem('tokenCTVHH');

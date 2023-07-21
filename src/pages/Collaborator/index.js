@@ -1,32 +1,39 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './infomation.scss';
 import { PUBLIC_URL } from '../../utils/const';
 import Input from '../../components/Input';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useGetUser } from '../../service/collaboratorService';
+import { useChangePassword } from '../../service/authService';
+import './infomation.scss';
 
-const data = {
-  name: 'Phạm Thanh Hoa',
-  phone: '0987654321',
-  email: 'hoa@gmail.com',
-  address: 'Hà Nội',
-  gender: 'Nữ',
-  rank: 'Hạng A',
-  manager: 'Nguyễn Văn B',
-  date: '22/01/2022',
-};
 const Infomation = () => {
-  const [isEditInfo, setIsEditInfo] = useState(true);
-  const [info, setInfo] = useState(data);
-  const [password, setPassword] = useState({ password: '', newPassword: '', retypePassword: '' });
-  const handleInfo = (e) => {
-    setInfo({ ...info, [e.target.name]: e.target.value });
-  };
+  const [password, setPassword] = useState({ newPassword: '', retypePassword: '' });
+  // eslint-disable-next-line no-unused-vars
+  const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  const { dataUser, isSuccessUser } = useGetUser(token);
+  const { mutateChangePassword } = useChangePassword();
   const handlePassword = (e) => {
     setPassword({ ...password, [e.target.name]: e.target.value });
   };
-  const handleIsEditInfo = () => {
-    setIsEditInfo(!isEditInfo);
-  };
+  const handleSubmit = () => {
+    if (!password.newPassword || !password.retypePassword) {
+      alert("Mật khẩu không được để trống");
+    } else if (password.newPassword !== password.retypePassword) {
+      alert("Mật khẩu không trùng khớp");
+    } else {
+      mutateChangePassword({ password: password.newPassword, token: token }, {
+        onSuccess: (data) => {
+          setPassword({ newPassword: '', retypePassword: '' });
+          if (data.data.result.stage === false) {
+            alert(data.data.result.message)
+          } else if (data.data.result.status === 0) {
+            alert(data.data.result.message.content)
+          }
+        }
+      });
+    }
+  }
   return (
     <div className='infomation'>
       <Link to={`/customer-list`} className='infomation__arrow'>
@@ -41,70 +48,45 @@ const Infomation = () => {
           </div>
         </div>
         <div className='infomation__content'>
-          <Input
-            name='name'
-            title={'Họ và tên'}
-            value={info.name}
-            handleValue={handleInfo}
-            disable={isEditInfo}
-            require={false}
-          />
-          <Input
-            name='phone'
-            title={'Số điện thoại'}
-            value={info.phone}
-            handleValue={handleInfo}
-            disable={isEditInfo}
-            require={false}
-          />
-          <Input
-            name='email'
-            type='email'
-            title={'Email'}
-            value={info.email}
-            handleValue={handleInfo}
-            disable={isEditInfo}
-            require={false}
-          />
-          <Input
-            name='address'
-            title={'Địa chỉ'}
-            value={info.address}
-            handleValue={handleInfo}
-            disable={isEditInfo}
-            require={false}
-          />
-          <Input
-            name='gender'
-            title={'Giới tính'}
-            value={info.gender}
-            handleValue={handleInfo}
-            disable={isEditInfo}
-            require={false}
-          />
-          <Input
-            name='date'
-            title={'Ngày vào'}
-            value={info.date}
-            handleValue={handleInfo}
-            disable={isEditInfo}
-            require={false}
-          />
-        </div>
-        <div className='infomation__submit'>
-          {isEditInfo ? (
-            <button className='infomation__button' onClick={handleIsEditInfo}>
-              Chỉnh sửa
-            </button>
-          ) : (
-            <div className='infomation__control'>
-              <button className='infomation__button' onClick={handleIsEditInfo}>
-                Hủy bỏ
-              </button>
-              <button className='infomation__button' onClick={handleIsEditInfo}>
-                Cập nhật
-              </button>
-            </div>
+          {isSuccessUser && (
+            <>
+              <Input
+                name='name'
+                title={'Họ và tên'}
+                value={dataUser.data.result.name}
+                disable={true}
+                require={false}
+              />
+              <Input
+                name='phone'
+                title={'Số điện thoại'}
+                value={dataUser.data.result.phone}
+                disable={true}
+                require={false}
+              />
+              <Input
+                name='email'
+                type='email'
+                title={'Email'}
+                value={dataUser.data.result.email}
+                disable={true}
+                require={false}
+              />
+              <Input
+                name='address'
+                title={'Địa chỉ'}
+                value={dataUser.data.result.address}
+                disable={true}
+                require={false}
+              />
+              <Input
+                name='gender'
+                title={'Giới tính'}
+                value={dataUser.data.result.gender}
+                disable={true}
+                require={false}
+              />
+            </>
           )}
         </div>
       </div>
@@ -133,7 +115,7 @@ const Infomation = () => {
           />
         </div>
         <div className='infomation__submit'>
-          <button className='infomation__button'>Cập nhật</button>
+          <button className='infomation__button' onClick={handleSubmit}>Cập nhật</button>
         </div>
       </div>
     </div>
