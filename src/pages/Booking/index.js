@@ -48,6 +48,7 @@ const Booking = () => {
           <table className='table'>
             <tbody>
               <tr>
+                <th>Mã booking</th>
                 <th>Tên</th>
                 <th>Trạng thái</th>
                 <th>Ngày đến cửa</th>

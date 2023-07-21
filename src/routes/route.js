@@ -29,7 +29,7 @@ export const dropdownheader = [
   },
   {
     name: 'Đăng xuất',
-    link: `/logout`,
+    link: `/login`,
   },
 ];
 
@@ -62,6 +62,7 @@ export const customerList = [
 
 export const customerListBooking = [
   {
+    max: "BK01",
     id: 'Nguyễn Hạ Vy',
     name: 'Đến cửa',
     phone: '02/03/2023',
@@ -71,6 +72,7 @@ export const customerListBooking = [
     created_at:  '50.000 VND',
   },
   {
+    max: "BK02",
     id: 'Nguyễn Hạ Vy 1',
     name: 'Đến cửa',
     phone: '02/03/2023',
@@ -80,6 +82,7 @@ export const customerListBooking = [
     created_at:  '50.000 VND',
   },
   {
+    max: "BK03",
     id: 'Nguyễn Hạ Vy 2',
     name: 'Đến cửa',
     phone: '02/03/2023',

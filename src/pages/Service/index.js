@@ -35,6 +35,7 @@ const Service = () => {
                 <th>Trạng thái phiếu</th>
                 <th>Hình thức thanh toán</th>
                 <th>Loại thanh toán</th>
+                <th>Ngày thanh toán</th>
               </tr>
               <tr>
                 <td>00102</td>
@@ -44,6 +45,7 @@ const Service = () => {
                 <td>Đang xử lý</td>
                 <td>Tiền mặt</td>
                 <td>Hoa hồng</td>
+                <td>21/01/2023</td>
               </tr>
               <tr>
                 <td>00103</td>
@@ -53,6 +55,7 @@ const Service = () => {
                 <td>Đang xử lý</td>
                 <td>Tiền mặt</td>
                 <td>Hoa hồng</td>
+                <td>21/01/2023</td>
               </tr>
               <tr>
                 <td>00104</td>
@@ -62,6 +65,7 @@ const Service = () => {
                 <td>Đang xử lý</td>
                 <td>Tiền mặt</td>
                 <td>Hoa hồng</td>
+                <td>21/01/2023</td>
               </tr>
             </tbody>
           </table>
