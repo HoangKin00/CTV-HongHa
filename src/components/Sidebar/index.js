@@ -19,14 +19,14 @@ const Sidebar = ({ isActive }) => {
             <img src={`${PUBLIC_URL}/icons/customer.svg`} alt='' />
             Booking
           </Link>
-          <Link to={'/service-list'} className='sidebar__text'>
+          <Link to={'/payment'} className='sidebar__text'>
             <img src={`${PUBLIC_URL}/icons/service.svg`} alt='' />
             Payment
           </Link>
-          <Link to={'/report-service'} className='sidebar__text'>
+          {/* <Link to={'/report-service'} className='sidebar__text'>
             <img src={`${PUBLIC_URL}/icons/report.svg`} alt='' />
             Phiếu chi hoa hồng
-          </Link>
+          </Link> */}
           {/* <Link to={'/report-finance'} className='sidebar__text'>
             <img src={`${PUBLIC_URL}/icons/report.svg`} alt='' />
             Báo cáo Tài chính

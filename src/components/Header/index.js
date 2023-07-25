@@ -7,9 +7,9 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import './header.scss';
 
 export const Header = ({ handleClick, isActive }) => {
-   // eslint-disable-next-line no-unused-vars
-   const [token, setToken] = useLocalStorage('tokenCTVHH', null)
-   const { dataUser, isSuccessUser } = useGetUser(token)
+  // eslint-disable-next-line no-unused-vars
+  const [token, setToken] = useLocalStorage('tokenCTVHH', null)
+  const { dataUser, isSuccessUser } = useGetUser(token)
   return (
     <div className='header'>
       <div className='header__box'>

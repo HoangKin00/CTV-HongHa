@@ -1,20 +1,45 @@
 import React, { useState } from 'react';
+import DataTable from 'react-data-table-component';
 import { PUBLIC_URL } from '../../utils/const';
-import Pagination from '../../components/Pagination';
+import { customStyles } from '../../utils/styleCustomTable';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useGetCustomer } from '../../service/customerService';
+import { formatDate } from '../../utils/formatDate';
 import './customer.scss';
-import { customerList } from '../../routes/route';
-import CustomerList from '../../components/CustomerList';
 
 const Customer = () => {
-  const [search, setSearch] = useState('');
-  // const [filter, setFilter] = useState('');
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
-  // const handleFilter = (e) => {
-  //   setFilter(e.target.value);
-  // };
-
+  const [valueSearch, setValueSearch] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  const { dataCustomer, isSuccessCustomer, refetchCustomer } = useGetCustomer({ token: token, name: valueSearch });
+  const columns = [
+    {
+      name: 'Họ và tên',
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: 'Số điện thoại 1',
+      selector: (row) => row.phone1,
+    },
+    {
+      name: 'Số điện thoại 2',
+      selector: (row) => (row.phone2 ? row.phone2 : 'Trống'),
+    },
+    {
+      name: 'Giới tính',
+      selector: (row) => row.gender,
+      grow: 0.6
+    },
+    {
+      name: 'Ngày sinh',
+      selector: (row) => formatDate(row.birthday),
+    },
+    {
+      name: 'Địa chỉ',
+      selector: (row) => row.address,
+    },
+  ];
   return (
     <div className='customer'>
       <div className='customer__box'>
@@ -25,45 +50,14 @@ const Customer = () => {
         </div>
         <div className='customer__tools'>
           <div className='customer__search'>
-            <input onChange={handleSearch} value={search} name='search' type='text' placeholder='Tìm kiếm tên ...' />
-            <button>
+            <input name='search' type='text' placeholder='Tìm kiếm tên' value={valueSearch} onChange={e => setValueSearch(e.target.value)} />
+            <button onClick={refetchCustomer}>
               <img src={`${PUBLIC_URL}/icons/search.png`} alt='' />
             </button>
           </div>
-          {/* <div className='customer__filter'>
-            <select name='filter' onChange={handleFilter} value={filter}>
-              <option value='Tất cả khách hàng'>Tất cả khách hàng</option>
-              <option value='Đến cửa'>Đến cửa</option>
-              <option value='Thành công'>Thành công</option>
-              <option value='Không thành công'>Không thành công</option>
-            </select>
-          </div>
-          <div className='customer__date'>
-            <b>Chọn ngày</b>
-            <input type='date' name='txtDate' id='txtDate' min='2000-01-01' />
-            <input type='date' name='txtDate' id='txtDate' min='2000-01-01' />
-            <button>Áp dụng</button>
-          </div> */}
         </div>
         <div className='customer__content'>
-          <table className='table'>
-            <tbody>
-              <tr>
-                <th>Tên</th>
-                <th>Số điện thoại 1</th>
-                <th>Số điện thoại 2</th>
-                <th>Giới tính</th>
-                <th>Ngày sinh</th>
-                <th>Địa chỉ</th>
-              </tr>
-              {customerList.map((item) => (
-                <CustomerList key={item.name} {...item} />
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div className='customer__pagination'>
-          <Pagination pageCount={5} pageNum={5} range={6} />
+          {isSuccessCustomer && <DataTable data={dataCustomer.data.result.data} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
         </div>
       </div>
     </div>

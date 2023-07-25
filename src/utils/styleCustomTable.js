@@ -1,7 +1,7 @@
 export const customStyles = {
     headRow: {
         style: {
-            borderBottom: '2px solid rgba(0, 0, 0, 0.12)',
+            borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
         },
     },
     headCells: {
@@ -24,10 +24,4 @@ export const customStyles = {
             paddingRight: '8px',
         },
     },
-};
-
-
-export const paginationComponentOptions = {
-    selectAllRowsItem: true,
-    selectAllRowsItemText: 'All',
 };

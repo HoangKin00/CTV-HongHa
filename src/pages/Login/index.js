@@ -51,11 +51,11 @@ const Login = () => {
               {isError.status === true && <div className='login__message'>{isError.message}</div>}
               <div className='login__input'>
                 <label>Số điện thoại</label>
-                <input type='text' name='phone' className={isError.status === true ? 'error' : ''} required  onChange={handleChange('login')} onKeyDown={(e) => (e.key === 'Enter' ? handleSubmit() : '')} />
+                <input type='text' name='phone' className={isError.status === true ? 'error' : ''} required onChange={handleChange('login')} onKeyDown={(e) => (e.key === 'Enter' ? handleSubmit() : '')} />
               </div>
               <div className='login__input'>
                 <label>Mật khẩu</label>
-                <input type='password' name='password' className={isError.status === true ? 'error' : ''} required onChange={handleChange('password')} onKeyDown={(e) => (e.key === 'Enter' ? handleSubmit() : '')}  />
+                <input type='password' name='password' className={isError.status === true ? 'error' : ''} required onChange={handleChange('password')} onKeyDown={(e) => (e.key === 'Enter' ? handleSubmit() : '')} />
               </div>
               <div onClick={() => handleSubmit()} className='login__button'>
                 <button>Đăng nhập</button>
