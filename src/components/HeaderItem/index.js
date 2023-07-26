@@ -9,9 +9,11 @@ const HeaderItem = (props) => {
   }
   return (
     <>
-      <Link to={props.link} onClick={handleLogout}>
-        <li className='headerItem__menu'>{props.name}</li>
-      </Link>
+      <li className='headerItem__menu'>
+        <Link to={props.link} onClick={handleLogout}>
+          {props.name}
+        </Link>
+      </li>
     </>
   );
 };

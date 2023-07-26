@@ -4,7 +4,8 @@ import { PUBLIC_URL } from '../../utils/const';
 import { customStyles } from '../../utils/styleCustomTable';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useGetPayment } from '../../service/paymentService'
-import { formatDateApi } from '../../utils/formatDate';
+import { formatDate, formatDateApi } from '../../utils/formatDate';
+import { formatMoney } from '../../utils/formatMoney';
 import './Payment.scss';
 
 const Payment = () => {
@@ -14,10 +15,11 @@ const Payment = () => {
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
   const { dataPayment, isSuccessPayment, refetchPayment } = useGetPayment({ token: token, [valueSelect]: valueSearch, from_date: valueDate.from_date, to_date: valueDate.to_date });
+  console.log("dataPayment: ", dataPayment);
   const columns = [
     {
       name: 'Mã booking',
-      selector: (row) => row.code,
+      selector: (row) => row.booking_code,
       sortable: true,
     },
     {
@@ -26,27 +28,31 @@ const Payment = () => {
     },
     {
       name: 'Tiền thanh toán',
-      selector: (row) => row.status,
+      selector: (row) => formatMoney(row.amount),
     },
     {
-      name: 'Đơn vị tiền tệ',
-      selector: (row) => row.date,
+      name: 'Đơn vị',
+      selector: (row) => row.currency_unit,
+      grow: 0.5,
     },
     {
       name: 'Trạng thái phiếu',
-      selector: (row) => <button>Xem chi tiết</button>,
+      selector: (row) => row.stage,
     },
     {
       name: 'Hình thức thanh toán',
-      selector: (row) => row.money,
+      selector: (row) => row.method,
+      grow: 0.8,
     },
     {
       name: 'Loại thanh toán',
-      selector: (row) => row.money2,
+      selector: (row) => row.type,
+      grow: 0.8,
     },
     {
       name: 'Ngày thanh toán',
-      selector: (row) => row.money3,
+      selector: (row) => formatDate(row.date),
+      grow: 0.8,
     },
   ];
   return (
@@ -78,7 +84,7 @@ const Payment = () => {
           </div>
         </div>
         <div className='customer__content'>
-          {isSuccessPayment && <DataTable data={dataPayment.data.stage !== 1 ? dataPayment.data.result.data : []} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
+          {isSuccessPayment && <DataTable data={dataPayment.data.stage !== 1 ? dataPayment.data.result.data : []} columns={columns} customStyles={customStyles} highlightOnHover pagination responsive />}
         </div>
       </div>
     </div>

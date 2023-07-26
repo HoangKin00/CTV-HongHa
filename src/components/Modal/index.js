@@ -3,26 +3,6 @@ import { formatMoney } from '../../utils/formatMoney'
 import './Modal.scss'
 
 export default function Modal({ isShowing, hide, element, data }) {
-    data = [
-        {
-            code: 'service-001',
-            name: 'Cắt mí',
-            price: '3000000',
-            status: 'done'
-        },
-        {
-            code: 'service-002',
-            name: 'Nâng mũi',
-            price: '30000000',
-            status: 'done'
-        },
-        {
-            code: 'service-003',
-            name: 'Gọt hàm',
-            price: '45000000',
-            status: 'done'
-        },
-    ]
     return isShowing && element === 'Modal' ? ReactDOM.createPortal(
         <>
             <div className="modal" id="modal-pop" style={{ display: 'flex' }}>

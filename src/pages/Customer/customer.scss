@@ -1,19 +1,17 @@
 .customer {
   &__header {
-    padding: 15px 0;
     border-bottom: 1px solid #dee2e6;
-    background: #f4f6f8;
+    background: #fff;
+    padding: 15px 20px;
   }
   &__title {
-    width: 95%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     span {
       font-size: 18px;
-      font-weight: 400;
-      color: #0088ff;
+      font-weight: 600;
+      color: #00abe6;
     }
   }
   &__button {
@@ -28,7 +26,6 @@
   &__box {
     background: #fff;
     border: 1px solid #dee2e6;
-    padding-bottom: 40px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
   }
   &__tools {
@@ -36,8 +33,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    width: 95%;
-    margin: 25px auto;
+    padding: 15px 20px 10px;
   }
   &__left {
     display: flex;
@@ -48,6 +44,7 @@
   &__search {
     position: relative;
     display: flex;
+    width: 30%;
 
     input {
       width: 100%;
@@ -66,8 +63,8 @@
     button {
       width: 40px;
       height: 37px;
-      border: 1px solid #0088ff;
-      background: #0088ff;
+      border: 1px solid #00abe6;
+      background: #00abe6;
       text-align: center;
       color: #fff;
       border-radius: 0 5px 5px 0;
@@ -90,11 +87,12 @@
       color: #888;
     }
     button {
-      background: #0088ff;
+      background: #00abe6;
       border: none;
       border-radius: 5px;
       padding: 5px 10px;
       color: #fff;
+      cursor: pointer;
     }
   }
   &__filter {
@@ -109,8 +107,7 @@
     }
   }
   &__content {
-    margin: 0 auto;
-    width: 95%;
+    padding: 0px 20px 5px;
   }
   &__more {
     border: none;
