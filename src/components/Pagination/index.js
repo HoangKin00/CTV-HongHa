@@ -32,7 +32,7 @@ const Pagination = ({ pageNum, setPageNum, pageCount, range }) => {
         ❮
       </li>
       {pagiPage.map((item, idx) => (
-        <li  key={idx} className={pageNum === item ? 'pagination__active' : ''}>
+        <li key={idx} className={pageNum === item ? 'pagination__active' : ''}>
           {item}
         </li>
       ))}

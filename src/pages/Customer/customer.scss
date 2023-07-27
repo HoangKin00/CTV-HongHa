@@ -1,19 +1,17 @@
 .customer {
   &__header {
-    padding: 15px 0;
     border-bottom: 1px solid #dee2e6;
-    background: #f4f6f8;
+    background: #fff;
+    padding: 15px 20px;
   }
   &__title {
-    width: 95%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     span {
       font-size: 18px;
-      font-weight: 400;
-      color: #0088ff;
+      font-weight: 600;
+      color: #00abe6;
     }
   }
   &__button {
@@ -28,21 +26,25 @@
   &__box {
     background: #fff;
     border: 1px solid #dee2e6;
-    padding-bottom: 40px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
   }
   &__tools {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
-    width: 95%;
-    margin: 25px auto;
+    gap: 20px;
+    padding: 15px 20px 10px;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
   }
   &__search {
-    width: 30%;
     position: relative;
     display: flex;
+    width: 30%;
 
     input {
       width: 100%;
@@ -61,8 +63,8 @@
     button {
       width: 40px;
       height: 37px;
-      border: 1px solid #0088ff;
-      background: #0088ff;
+      border: 1px solid #00abe6;
+      background: #00abe6;
       text-align: center;
       color: #fff;
       border-radius: 0 5px 5px 0;
@@ -74,7 +76,6 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    width: 54%;
     b {
       font-style: italic;
       color: #000;
@@ -86,15 +87,15 @@
       color: #888;
     }
     button {
-      background: #0088ff;
+      background: #00abe6;
       border: none;
       border-radius: 5px;
       padding: 5px 10px;
       color: #fff;
+      cursor: pointer;
     }
   }
   &__filter {
-    width: 15%;
     select {
       width: 100%;
       height: 37px;
@@ -106,8 +107,15 @@
     }
   }
   &__content {
-    margin: 0 auto;
-    width: 95%;
+    padding: 0px 20px 5px;
+  }
+  &__more {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    color: blue;
+    padding: 0;
+    cursor: pointer;
   }
   table {
     border: 1px solid #dee2e6;
@@ -135,18 +143,10 @@
     justify-content: center;
   }
   @media (max-width: 1440px) {
-    &__tools {
-      gap: 20px;
-    }
     &__date {
-      justify-content: flex-end;
       input {
-        width: 30%;
         padding: 5px;
       }
-    }
-    &__filter {
-      width: 20%;
     }
   }
   @media (max-width: 1180px) {
@@ -157,18 +157,9 @@
       gap: 10px;
     }
     &__date {
-      width: 70%;
-      gap: 4px;
       input {
-        width: 30%;
         padding: 5px;
       }
-    }
-    &__search {
-      width: 40%;
-    }
-    &__filter {
-      width: 28%;
     }
     table {
       font-size: 14px;

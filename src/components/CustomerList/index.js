@@ -8,6 +8,7 @@ const CustomerList = (props) => {
   // };
   return (
     <tr className='customerlist'>
+      <td>{props.max}</td>
       <td>{props.id}</td>
       <td>{props.name}</td>
       <td>{props.phone}</td>

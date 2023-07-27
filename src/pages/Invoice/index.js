@@ -3,56 +3,38 @@ import DataTable from 'react-data-table-component';
 import { PUBLIC_URL } from '../../utils/const';
 import { customStyles } from '../../utils/styleCustomTable';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { useGetBooking } from '../../service/bookingService'
+import { useGetInvoice } from '../../service/invoiceService'
 import { formatDate, formatDateApi } from '../../utils/formatDate';
 import { formatMoney } from '../../utils/formatMoney';
-import { useModal } from '../../hooks/useModal';
-import Modal from '../../components/Modal';
 
-const Booking = () => {
+const Invoice = () => {
   const [valueSearch, setValueSearch] = useState('');
   const [valueStatus, setValueStatus] = useState('');
   const [valueDate, setValueDate] = useState({ from_date: '', to_date: '' });
-  const [dataService, setDataService] = useState([])
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
-  const { isShowing, cpn, toggle } = useModal();
-  const { dataBooking, isSuccessBooking, refetchBooking } = useGetBooking({ token: token, name: valueSearch, status: valueStatus, from_date: valueDate.from_date, to_date: valueDate.to_date })
+  const { dataInvoice, isSuccessInvoice, refetchInvoice } = useGetInvoice({ token: token, name: valueSearch, status: valueStatus, from_date: valueDate.from_date, to_date: valueDate.to_date })
   const columns = [
     {
-      name: 'Mã booking',
-      selector: (row) => row.code,
+      name: 'Tên khách hàng',
+      selector: (row) => row.partner_name,
       sortable: true,
     },
     {
-      name: 'Họ và tên',
-      selector: (row) => row.name,
-    },
-    {
       name: 'Trạng thái',
-      selector: (row) => row.status,
+      selector: (row) => row.stage,
     },
     {
-      name: 'Ngày đến cửa',
-      selector: (row) => formatDate(row.arrival_date),
-      grow: 0.6
+      name: 'Ghi chú',
+      selector: (row) => row.note,
     },
     {
-      name: 'Dịch vụ',
-      selector: (row) => <button className='customer__more' onClick={() => { setDataService(row.service); toggle('Modal') }} > Xem chi tiết</button >,
-      grow: 0.6
+      name: 'Số tiền chi',
+      selector: (row) => formatMoney(row.amount),
     },
     {
-      name: 'Tiền đã thu',
-      selector: (row) => formatMoney(row.total_amount),
-    },
-    {
-      name: 'Tiền chi phí',
-      selector: (row) => formatMoney(row.total_expense),
-    },
-    {
-      name: 'Tiền miễn giảm',
-      selector: (row) => formatMoney(row.total_discount),
+      name: 'Ngày tạo phiếu',
+      selector: (row) => formatDate(row.create_date),
     },
   ];
   return (
@@ -61,19 +43,19 @@ const Booking = () => {
         <div className='customer__box'>
           <div className='customer__header'>
             <div className='customer__title'>
-              <span>Danh sách booking</span>
+              <span>Danh sách phiếu chi hoa hồng</span>
             </div>
           </div>
           <div className='customer__tools'>
             <div className='customer__left'>
               <div className='customer__search'>
                 <input name='search' type='text' placeholder='Tìm kiếm ...' value={valueSearch} onChange={e => setValueSearch(e.target.value)} />
-                <button onClick={refetchBooking}>
+                <button onClick={refetchInvoice}>
                   <img src={`${PUBLIC_URL}/icons/search.png`} alt='' />
                 </button>
               </div>
               <div className='customer__filter'>
-                <select name='filter' value={valueStatus} onChange={(e) => { setValueStatus(e.target.value); setTimeout(() => refetchBooking(), 0) }}>
+                <select name='filter' value={valueStatus} onChange={(e) => { setValueStatus(e.target.value); setTimeout(() => refetchInvoice(), 0) }}>
                   <option value=''>Tất cả khách hàng</option>
                   <option value='0'>Chưa đến</option>
                   <option value='1'>Đã đến</option>
@@ -86,17 +68,16 @@ const Booking = () => {
               <b>Chọn ngày</b>
               <input type='date' onChange={(e) => setValueDate({ ...valueDate, from_date: formatDateApi(e.target.value) })} />
               <input type='date' onChange={(e) => setValueDate({ ...valueDate, to_date: formatDateApi(e.target.value) })} />
-              <button onClick={refetchBooking}>Áp dụng</button>
+              <button onClick={refetchInvoice}>Áp dụng</button>
             </div>
           </div>
           <div className='customer__content'>
-            {isSuccessBooking && <DataTable data={dataBooking.data.stage !== 1 ? dataBooking.data.result.data : []} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
+            {isSuccessInvoice && <DataTable data={dataInvoice.data.stage !== 1 ? dataInvoice.data.result : []} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
           </div>
         </div>
       </div>
-      <Modal isShowing={isShowing} hide={toggle} element={cpn} data={dataService} />
     </>
   );
 };
 
-export default Booking;
+export default Invoice;

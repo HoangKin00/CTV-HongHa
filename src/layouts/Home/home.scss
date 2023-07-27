@@ -20,15 +20,15 @@
   &__main {
     background: #f4f6f8;
     overflow-x: auto;
-    height: calc(100vh - 54px);
-    padding: 30px 80px 0;
+    width: 100%;
+    height: calc(100vh - 34px);
+    padding: 40px 70px 0;
   }
   @media (max-width: 1440px) {
     &__main {
       background: #f4f6f8;
       overflow-x: auto;
-      height: calc(100vh - 54px);
-      padding: 30px 60px 0;
+      height: calc(100vh - 34px);
     }
   }
   @media (max-width: 1180px) {
