@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { PUBLIC_URL } from '../../utils/const';
 import { customStyles } from '../../utils/styleCustomTable';
@@ -7,6 +7,7 @@ import { useGetPayment } from '../../service/paymentService'
 import { formatDate, formatDateApi } from '../../utils/formatDate';
 import { formatMoney } from '../../utils/formatMoney';
 import './Payment.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Payment = () => {
   const [valueSearch, setValueSearch] = useState('');
@@ -14,8 +15,13 @@ const Payment = () => {
   const [valueSelect, setValueSelect] = useState('name');
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      navigate('/login')
+    }
+  }, [token, navigate]);
   const { dataPayment, isSuccessPayment, refetchPayment } = useGetPayment({ token: token, [valueSelect]: valueSearch, from_date: valueDate.from_date, to_date: valueDate.to_date });
-  console.log("dataPayment: ", dataPayment);
   const columns = [
     {
       name: 'Mã booking',

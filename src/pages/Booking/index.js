@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { PUBLIC_URL } from '../../utils/const';
 import { customStyles } from '../../utils/styleCustomTable';
@@ -8,6 +8,7 @@ import { formatDate, formatDateApi } from '../../utils/formatDate';
 import { formatMoney } from '../../utils/formatMoney';
 import { useModal } from '../../hooks/useModal';
 import Modal from '../../components/Modal';
+import { useNavigate } from 'react-router-dom';
 
 const Booking = () => {
   const [valueSearch, setValueSearch] = useState('');
@@ -16,6 +17,12 @@ const Booking = () => {
   const [dataService, setDataService] = useState([])
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      navigate('/login')
+    }
+  }, [token, navigate]);
   const { isShowing, cpn, toggle } = useModal();
   const { dataBooking, isSuccessBooking, refetchBooking } = useGetBooking({ token: token, name: valueSearch, status: valueStatus, from_date: valueDate.from_date, to_date: valueDate.to_date })
   const columns = [

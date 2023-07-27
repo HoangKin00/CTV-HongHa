@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { PUBLIC_URL } from '../../utils/const';
 import { customStyles } from '../../utils/styleCustomTable';
@@ -6,11 +6,18 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useGetCustomer } from '../../service/customerService';
 import { formatDate } from '../../utils/formatDate';
 import './customer.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Customer = () => {
   const [valueSearch, setValueSearch] = useState('');
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      navigate('/login')
+    }
+  }, [token, navigate]);
   const { dataCustomer, isSuccessCustomer, refetchCustomer } = useGetCustomer({ token: token, name: valueSearch });
   const columns = [
     {
@@ -57,7 +64,7 @@ const Customer = () => {
           </div>
         </div>
         <div className='customer__content'>
-          {isSuccessCustomer && <DataTable data={dataCustomer.data.result.data} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
+          {isSuccessCustomer && <DataTable data={dataCustomer.data.stage === 1 ? [] : dataCustomer.data.result.data} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
         </div>
       </div>
     </div>
