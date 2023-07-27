@@ -90,7 +90,7 @@ const Payment = () => {
           </div>
         </div>
         <div className='customer__content'>
-          {isSuccessPayment && <DataTable data={dataPayment.data.stage !== 1 ? dataPayment.data.result.data : []} columns={columns} customStyles={customStyles} highlightOnHover pagination responsive />}
+          {isSuccessPayment && <DataTable data={dataPayment.data.stage !== 1 ? dataPayment.data.result.data : []} columns={columns} customStyles={customStyles} highlightOnHover pagination responsive noDataComponent={<div style={{ padding: '24px' }}>Dữ liệu trống</div>} />}
         </div>
       </div>
     </div>

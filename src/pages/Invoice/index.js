@@ -79,7 +79,7 @@ const Invoice = () => {
             </div>
           </div>
           <div className='customer__content'>
-            {isSuccessInvoice && <DataTable data={dataInvoice.data.stage !== 1 ? dataInvoice.data.result : []} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
+            {isSuccessInvoice && <DataTable data={dataInvoice.data.stage !== 1 ? dataInvoice.data.result : []} columns={columns} customStyles={customStyles} highlightOnHover pagination noDataComponent={<div style={{ padding: '24px' }}>Dữ liệu trống</div>} />}
           </div>
         </div>
       </div>

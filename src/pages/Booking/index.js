@@ -97,7 +97,7 @@ const Booking = () => {
             </div>
           </div>
           <div className='customer__content'>
-            {isSuccessBooking && <DataTable data={dataBooking.data.stage !== 1 ? dataBooking.data.result.data : []} columns={columns} customStyles={customStyles} highlightOnHover pagination />}
+            {isSuccessBooking && <DataTable data={dataBooking.data.stage !== 1 ? dataBooking.data.result.data : []} columns={columns} customStyles={customStyles} highlightOnHover pagination noDataComponent={<div style={{ padding: '24px' }}>Dữ liệu trống</div>} />}
           </div>
         </div>
       </div>
