@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { PUBLIC_URL } from '../../utils/const';
 import Input from '../../components/Input';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
@@ -11,6 +11,12 @@ const Infomation = () => {
   const [password, setPassword] = useState({ newPassword: '', retypePassword: '' });
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!token) {
+      navigate('/login')
+    }
+  }, [token, navigate]);
   const { dataUser, isSuccessUser } = useGetUser(token);
   const { mutateChangePassword } = useChangePassword();
   const handlePassword = (e) => {
