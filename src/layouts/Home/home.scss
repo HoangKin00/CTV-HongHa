@@ -9,9 +9,9 @@
     transition: all 0.2s linear;
   }
   &__click {
-    transform: translateX(0%);
     max-width: 230px;
     min-width: 230px;
+    transform: translateX(0%);
     transition: all 0.2s linear;
   }
   &__box {
@@ -34,8 +34,9 @@
   @media (max-width: 1180px) {
     &__click {
       transform: translateX(-100%);
-      max-width: 0;
-      min-width: 0;
+      max-width: 200px;
+      min-width: 200px;
+      position: fixed;
     }
     &__main {
       background: #f4f6f8;
@@ -44,8 +45,6 @@
       padding: 30px 30px 0;
     }
     &__sidebar {
-      max-width: 200px;
-      min-width: 200px;
       z-index: 5;
     }
     &__logo img {

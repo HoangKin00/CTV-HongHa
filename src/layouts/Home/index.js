@@ -6,13 +6,13 @@ import './home.scss';
 
 const Home = () => {
   const [isActive, setIsActive] = useState(false);
-  const handleClick = (event) => {
+  const handleClick = () => {
     setIsActive(!isActive);
   };
   return (
     <div className='home'>
       <div className={isActive ? 'home__sidebar' : 'home__click'}>
-        <Sidebar isActive={isActive} />
+        <Sidebar handleClick={handleClick} isActive={isActive} />
       </div>
       <div className='home__box'>
         <div className='home__header'>
@@ -20,7 +20,7 @@ const Home = () => {
         </div>
         <div className='home__main'>
           <Outlet />
-          <div className={isActive ? 'home__activebg' : 'home__bg'}></div>
+          <div className={isActive ? 'home__activebg' : 'home__bg'} onClick={handleClick}></div>
         </div>
       </div>
     </div>
