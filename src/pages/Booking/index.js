@@ -24,7 +24,7 @@ const Booking = () => {
     }
   }, [token, navigate]);
   const { isShowing, cpn, toggle } = useModal();
-  const { dataBooking, isSuccessBooking, refetchBooking } = useGetBooking({ token: token, name: valueSearch, status: valueStatus, from_date: valueDate.from_date, to_date: valueDate.to_date })
+  const { dataBooking, isSuccessBooking, refetchBooking } = useGetBooking({ token: token, code: valueSearch, status: valueStatus, from_date: valueDate.from_date, to_date: valueDate.to_date })
   const columns = [
     {
       name: 'Mã booking',

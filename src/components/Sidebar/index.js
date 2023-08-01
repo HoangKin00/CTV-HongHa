@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { PUBLIC_URL } from '../../utils/const';
 import './sidebar.scss';
 
-const Sidebar = ({ isActive }) => {
+const Sidebar = ({ handleClick, isActive }) => {
   return (
     <div className={isActive ? 'sidebar' : 'click'}>
       <div className='sidebar__logo'>
@@ -11,22 +11,22 @@ const Sidebar = ({ isActive }) => {
       </div>
       <div className='sidebar__menu'>
         <ul>
-          <Link to={'/customer-list'} className='sidebar__text'>
-            <img src={`${PUBLIC_URL}/icons/customer.svg`} alt='' />
+          <NavLink to={'/customer-list'} className='sidebar__text' onClick={handleClick}>
+            <i className="icon-users-2"></i>
             Khách hàng
-          </Link>
-          <Link to={'/booking'} className='sidebar__text'>
-            <img src={`${PUBLIC_URL}/icons/file-regular.svg`} alt='' />
+          </NavLink>
+          <NavLink to={'/booking'} className='sidebar__text' onClick={handleClick}>
+            <i className="icon-doc-inv"></i>
             Booking
-          </Link>
-          <Link to={'/payment'} className='sidebar__text'>
-            <img src={`${PUBLIC_URL}/icons/service.svg`} alt='' />
+          </NavLink>
+          <NavLink to={'/payment'} className='sidebar__text' onClick={handleClick}>
+            <i className="icon-list-bullet"></i>
             Payment
-          </Link>
-          <Link to={'/invoice'} className='sidebar__text'>
-            <img src={`${PUBLIC_URL}/icons/report.svg`} alt='' />
+          </NavLink>
+          <NavLink to={'/invoice'} className='sidebar__text' onClick={handleClick}>
+            <i className="icon-check"></i>
             Phiếu chi hoa hồng
-          </Link>
+          </NavLink>
         </ul>
       </div>
     </div>
