@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PUBLIC_URL } from '../../utils/const';
 import { dropdownheader } from '../../routes/route';
 import HeaderItem from '../HeaderItem';
 import { useGetUser } from '../../service/collaboratorService';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import './header.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const Header = ({ handleClick, isActive }) => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState([]);
   // eslint-disable-next-line no-unused-vars
-  const [token, setToken] = useLocalStorage('tokenCTVHH', null)
-  const { dataUser, isSuccessUser } = useGetUser(token)
+  const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  const { dataUser, isSuccessUser } = useGetUser(token);
+  useEffect(() => {
+    if (isSuccessUser) {
+      if (dataUser.data.stage !== 1) {
+        setUser(dataUser.data.result);
+      } else {
+        alert(dataUser.data.massage)
+        navigate('/login');
+      }
+    }
+  }, [isSuccessUser, dataUser, navigate]);
   return (
     <div className='header'>
       <div className='header__box'>
@@ -22,7 +35,7 @@ export const Header = ({ handleClick, isActive }) => {
           </div>
         </div>
         <div className='header__content'>
-          {isSuccessUser && <p>{dataUser.data.result.name}</p>}
+          {user && <p>{user.name}</p>}
           <div className='header__user'>
             <img src={`${PUBLIC_URL}/icons/user.svg`} alt='' />
           </div>
