@@ -64,7 +64,7 @@ const Customer = () => {
           </div>
         </div>
         <div className='customer__content'>
-          {isSuccessCustomer && <DataTable data={dataCustomer.data.stage === 1 ? [] : dataCustomer.data.result.data} columns={columns} customStyles={customStyles} highlightOnHover pagination noDataComponent={<div style={{ padding: '24px' }}>Dữ liệu trống</div>} />}
+          {isSuccessCustomer && <DataTable data={dataCustomer.data.stage === 1 ? [] : dataCustomer.data.stage === 2 ? [] : dataCustomer.data.result.data} columns={columns} customStyles={customStyles} highlightOnHover pagination noDataComponent={<div style={{ padding: '24px' }}>Dữ liệu trống</div>} />}
         </div>
       </div>
     </div>
