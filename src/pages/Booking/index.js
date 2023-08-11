@@ -5,7 +5,6 @@ import { customStyles } from '../../utils/styleCustomTable';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useGetBooking } from '../../service/bookingService'
 import { formatDate, formatDateApi } from '../../utils/formatDate';
-import { formatMoney } from '../../utils/formatMoney';
 import { useModal } from '../../hooks/useModal';
 import Modal from '../../components/Modal';
 import { useNavigate } from 'react-router-dom';

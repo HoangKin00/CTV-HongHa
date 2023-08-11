@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import './home.scss';
 
 const Home = () => {
+  const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [token, setToken] = useLocalStorage('tokenCTVHH', null);
+  useEffect(() => {
+    if (token === null) {
+      navigate('/login');
+    }
+  }, [token, navigate])
   const handleClick = () => {
     setIsActive(!isActive);
   };
