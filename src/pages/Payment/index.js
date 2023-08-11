@@ -6,8 +6,8 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useGetPayment } from '../../service/paymentService'
 import { formatDate, formatDateApi } from '../../utils/formatDate';
 import { formatMoney } from '../../utils/formatMoney';
-import './Payment.scss';
 import { useNavigate } from 'react-router-dom';
+import './Payment.scss';
 
 const Payment = () => {
   const [valueSearch, setValueSearch] = useState('');
@@ -33,17 +33,21 @@ const Payment = () => {
       selector: (row) => row.name,
     },
     {
-      name: 'Tiền thanh toán',
-      selector: (row) => formatMoney(row.amount),
+      name: 'Tiền chi phí',
+      selector: (row) => formatMoney(row.total_expense),
     },
     {
-      name: 'Đơn vị',
-      selector: (row) => row.currency_unit,
-      grow: 0.5,
+      name: 'Tiền đã nộp',
+      selector: (row) => formatMoney(row.total_amount),
+    },
+    {
+      name: 'Tiền miễn giảm',
+      selector: (row) => formatMoney(row.total_discount),
     },
     {
       name: 'Trạng thái phiếu',
       selector: (row) => row.stage,
+      grow: 0.7,
     },
     {
       name: 'Hình thức thanh toán',

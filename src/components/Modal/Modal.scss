@@ -3,9 +3,16 @@
   border-bottom: 1px solid #ccc;
   &Item {
     flex: 1 1 auto;
-    min-width: 150px;
+    min-width: 25%;
     font-weight: 600;
-    padding: 5px 0;
+    padding: 5px;
+    word-wrap: break-word;
+    &--1 {
+      min-width: 20%;
+    }
+    &--2 {
+      min-width: 40%;
+    }
   }
 }
 .modal__col {
@@ -13,7 +20,14 @@
   border-bottom: 1px solid #ccc;
   &Item {
     flex: 1 1 auto;
-    min-width: 150px;
-    padding: 5px 0;
+    min-width: 25%;
+    padding: 5px;
+    word-wrap: break-word;
+    &--1 {
+      min-width: 20%;
+    }
+    &--2 {
+      min-width: 40%;
+    }
   }
 }

@@ -42,24 +42,10 @@ const Booking = () => {
     {
       name: 'Ngày đến cửa',
       selector: (row) => formatDate(row.arrival_date),
-      grow: 0.6
     },
     {
       name: 'Dịch vụ',
       selector: (row) => <button className='customer__more' onClick={() => { setDataService(row.service); toggle('Modal') }} > Xem chi tiết</button >,
-      grow: 0.6
-    },
-    {
-      name: 'Tiền đã thu',
-      selector: (row) => formatMoney(row.total_amount),
-    },
-    {
-      name: 'Tiền chi phí',
-      selector: (row) => formatMoney(row.total_expense),
-    },
-    {
-      name: 'Tiền miễn giảm',
-      selector: (row) => formatMoney(row.total_discount),
     },
   ];
   return (

@@ -1626,7 +1626,7 @@ input:focus {
 }
 .modal {
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   display: none;
   position: fixed;
   width: 100%;
@@ -1707,8 +1707,8 @@ input:focus {
 }
 .modal-box {
   position: relative;
-  max-width: 600px;
-  margin: 0 15px;
+  max-width: 850px;
+  margin: 40px 15px;
 }
 .modal-box-video {
   width: 65%;

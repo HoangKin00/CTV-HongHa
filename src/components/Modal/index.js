@@ -14,17 +14,17 @@ export default function Modal({ isShowing, hide, element, data }) {
                     </div>
                     <div className="modal-body">
                         <div className='modal__head'>
-                            <div className='modal__headItem'>Mã dịch vụ</div>
-                            <div className='modal__headItem'>Tên dịch vụ</div>
-                            <div className='modal__headItem'>Trạng thái</div>
-                            <div className='modal__headItem'>Giá</div>
+                            <div className='modal__headItem modal__headItem--1'>Mã dịch vụ</div>
+                            <div className='modal__headItem modal__headItem--2'>Tên dịch vụ</div>
+                            <div className='modal__headItem modal__headItem--1'>Trạng thái</div>
+                            <div className='modal__headItem modal__headItem--1'>Giá</div>
                         </div>
                         {data.map((item, index) => (
                             <div key={index} className='modal__col'>
-                                <div className='modal__colItem'>{item.code}</div>
-                                <div className='modal__colItem'>{item.name}</div>
-                                <div className='modal__colItem'>{item.status}</div>
-                                <div className='modal__colItem'>{formatMoney(item.price)}</div>
+                                <div className='modal__colItem modal__colItem--1'>{item.code}</div>
+                                <div className='modal__colItem modal__colItem--2'>{item.name}</div>
+                                <div className='modal__colItem modal__colItem--1'>{item.status}</div>
+                                <div className='modal__colItem modal__colItem--1'>{formatMoney(item.price)}</div>
                             </div>
                         ))}
                     </div>
