@@ -12,7 +12,7 @@ export const Header = ({ handleClick, isActive }) => {
   const [user, setUser] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [token, setToken] = useLocalStorage('tokenCTVHH', null);
-  const { dataUser, isSuccessUser } = useGetUser(token);
+  const { dataUser, isSuccessUser, isErrorUser } = useGetUser(token);
   useEffect(() => {
     if (isSuccessUser) {
       if (dataUser.data.stage !== 1) {
@@ -21,8 +21,12 @@ export const Header = ({ handleClick, isActive }) => {
         alert(dataUser.data.massage)
         navigate('/login');
       }
+    } else if (isErrorUser) {
+      alert('Lỗi hệ thống. Vui lòng đăng nhập lại')
+      navigate('/login');
+      setToken(null);
     }
-  }, [isSuccessUser, dataUser, navigate]);
+  }, [isSuccessUser, dataUser, navigate, setToken, isErrorUser]);
   return (
     <div className='header'>
       <div className='header__box'>
