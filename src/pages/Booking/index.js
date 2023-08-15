@@ -72,7 +72,7 @@ const Booking = () => {
                   <option value='' disabled>Chọn trạng thái</option>
                   <option value=''>Tất cả trạng thái</option>
                   <option value='1'>Đã đến</option>
-                  <option value='2'>Đã thực hiện dịch vụ</option>
+                  <option value='3'>Đã hoàn thành dịch vụ</option>
                 </select>
               </div>
             </div>

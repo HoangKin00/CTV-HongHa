@@ -45,3 +45,11 @@
     }
   }
 }
+
+@media (max-width: 468px) {
+  .modal-box {
+    margin: 0 !important;
+    background-color: #fff;
+    height: 100%;
+  }
+}
