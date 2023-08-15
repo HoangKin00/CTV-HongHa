@@ -17,7 +17,12 @@ export const Header = ({ handleClick, isActive }) => {
     if (isSuccessUser) {
       if (dataUser.data.stage !== 1) {
         setUser(dataUser.data.result);
-      } else {
+      }
+    }
+  }, [isSuccessUser, dataUser]);
+  useEffect(() => {
+    if (isSuccessUser) {
+      if (dataUser.data.stage === 1) {
         alert(dataUser.data.massage)
         navigate('/login');
       }
@@ -26,7 +31,7 @@ export const Header = ({ handleClick, isActive }) => {
       navigate('/login');
       setToken(null);
     }
-  }, [isSuccessUser, dataUser, navigate, setToken, isErrorUser]);
+  }, [isSuccessUser, dataUser, navigate, setToken, isErrorUser])
   return (
     <div className='header'>
       <div className='header__box'>

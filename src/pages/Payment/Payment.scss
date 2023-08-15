@@ -1,37 +1,4 @@
 .customer {
-  &__group {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    width: 50%;
-    button {
-      width: 40px;
-      height: 37px;
-      border: 1px solid #00abe6;
-      background: #00abe6;
-      text-align: center;
-      color: #fff;
-      border-radius: 0 5px 5px 0;
-      cursor: pointer;
-      font-size: 20px;
-    }
-  }
-  &__control {
-    position: relative;
-    flex: 1 1 auto;
-    width: 1%;
-    min-width: 0;
-    background: #fff;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-left-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
-    padding: 0.375rem 0.5rem;
-    display: block;
-    border: 1px solid #ccc;
-    appearance: none;
-  }
   &__toggle {
     color: #6e6e6e;
     margin-left: -1px;
