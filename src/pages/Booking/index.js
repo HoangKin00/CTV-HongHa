@@ -71,10 +71,8 @@ const Booking = () => {
                 <select name='filter' value={valueStatus} onChange={(e) => { setValueStatus(e.target.value); setTimeout(() => refetchBooking(), 0) }}>
                   <option value='' disabled>Chọn trạng thái</option>
                   <option value=''>Tất cả trạng thái</option>
-                  <option value='0'>Chưa đến</option>
                   <option value='1'>Đã đến</option>
                   <option value='2'>Đã thực hiện dịch vụ</option>
-                  <option value='3'>Đã ra viện</option>
                 </select>
               </div>
             </div>
