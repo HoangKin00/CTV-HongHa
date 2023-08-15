@@ -1,6 +1,5 @@
 import ReactDOM from 'react-dom';
 import DataTable from 'react-data-table-component';
-import { formatMoney } from '../../utils/formatMoney'
 import { customStyles } from '../../utils/styleCustomTable';
 import './Modal.scss'
 
@@ -9,7 +8,6 @@ export default function Modal({ isShowing, hide, element, data }) {
         {
             name: 'Mã dịch vụ',
             selector: (row) => row.code,
-            grow: 0.5,
             allowOverflow: false,
             wrap: true,
         },
@@ -18,20 +16,28 @@ export default function Modal({ isShowing, hide, element, data }) {
             selector: (row) => row.name,
             allowOverflow: false,
             wrap: true,
+            grow: 3,
         },
         {
             name: 'Trạng thái',
             selector: (row) => row.status,
-            grow: 0.5,
             allowOverflow: false,
             wrap: true,
         },
         {
             name: 'Giá',
-            selector: (row) => formatMoney(row.price),
-            grow: 0.5,
+            selector: (row) => Number(row.price).toLocaleString('it-IT'),
             allowOverflow: false,
             wrap: true,
+            right: true,
+            grow: 0.5,
+        },
+        {
+            name: 'Đơn vị',
+            selector: (row) => "VND",
+            allowOverflow: false,
+            wrap: true,
+            grow: 0.5,
         },
     ];
     return isShowing && element === 'Modal' ? ReactDOM.createPortal(
