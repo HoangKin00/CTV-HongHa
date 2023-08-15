@@ -56,9 +56,9 @@ const Customer = () => {
           </div>
         </div>
         <div className='customer__tools'>
-          <div className='customer__search'>
+          <div className='customer__search customer__search--1'>
             <input name='search' type='text' placeholder='Tìm kiếm tên' value={valueSearch} onChange={e => setValueSearch(e.target.value)} />
-            <button onClick={refetchCustomer}>
+            <button class="customer__searchSubmit" onClick={refetchCustomer}>
               <img src={`${PUBLIC_URL}/icons/search.png`} alt='' />
             </button>
           </div>

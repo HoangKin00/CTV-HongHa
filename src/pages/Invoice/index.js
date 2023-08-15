@@ -7,6 +7,9 @@ import { useGetInvoice } from '../../service/invoiceService'
 import { formatDate, formatDateApi } from '../../utils/formatDate';
 import { formatMoney } from '../../utils/formatMoney';
 import { useNavigate } from 'react-router-dom';
+import DatePicker from 'react-date-picker';
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
 
 const Invoice = () => {
   const [valueSearch, setValueSearch] = useState('');
@@ -20,7 +23,7 @@ const Invoice = () => {
       navigate('/login')
     }
   }, [token, navigate]);
-  const { dataInvoice, isSuccessInvoice, refetchInvoice } = useGetInvoice({ token: token, name: valueSearch, status: valueStatus, from_date: valueDate.from_date, to_date: valueDate.to_date })
+  const { dataInvoice, isSuccessInvoice, refetchInvoice } = useGetInvoice({ token: token, name: valueSearch, status: valueStatus, from_date: formatDateApi(valueDate.from_date), to_date: formatDateApi(valueDate.to_date) })
   const columns = [
     {
       name: 'Tên khách hàng',
@@ -57,7 +60,7 @@ const Invoice = () => {
             <div className='customer__left'>
               <div className='customer__search'>
                 <input name='search' type='text' placeholder='Tìm kiếm ...' value={valueSearch} onChange={e => setValueSearch(e.target.value)} />
-                <button onClick={refetchInvoice}>
+                <button className='customer__searchSubmit' onClick={refetchInvoice}>
                   <img src={`${PUBLIC_URL}/icons/search.png`} alt='' />
                 </button>
               </div>
@@ -71,11 +74,33 @@ const Invoice = () => {
                 </select>
               </div>
             </div>
+
             <div className='customer__date'>
-              <b>Chọn ngày</b>
-              <input type='date' onChange={(e) => setValueDate({ ...valueDate, from_date: formatDateApi(e.target.value) })} />
-              <input type='date' onChange={(e) => setValueDate({ ...valueDate, to_date: formatDateApi(e.target.value) })} />
-              <button onClick={refetchInvoice}>Áp dụng</button>
+              <div><b>Chọn ngày thanh toán</b></div>
+              <div className='customer__dateInput'>
+                <DatePicker
+                  className="date__picker"
+                  calendarIcon={<i className="icon-calendar"></i>}
+                  clearIcon={null}
+                  dayPlaceholder="dd"
+                  monthPlaceholder="mm"
+                  yearPlaceholder="yyyy"
+                  onChange={(value) => setValueDate({ ...valueDate, from_date: value })}
+                  value={valueDate.from_date}
+                />
+                <DatePicker
+                  className="date__picker"
+                  calendarIcon={<i className="icon-calendar"></i>}
+                  clearIcon={null}
+                  dayPlaceholder="dd"
+                  monthPlaceholder="mm"
+                  yearPlaceholder="yyyy"
+                  onChange={(value) => setValueDate({ ...valueDate, to_date: value })}
+                  value={valueDate.to_date}
+                />
+                <button className='customer__dateSubmit' onClick={refetchInvoice}>Áp dụng</button>
+                {(valueDate.from_date || valueDate.to_date) && <button className='customer__dateSubmit' style={{ backgroundColor: '#df0000' }} onClick={() => { setValueDate({ from_date: '', to_date: '' }); setTimeout(() => { refetchInvoice() }, 0) }}>Reset</button>}
+              </div>
             </div>
           </div>
           <div className='customer__content'>
