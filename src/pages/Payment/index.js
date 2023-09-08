@@ -30,27 +30,33 @@ const Payment = () => {
       name: 'Mã booking',
       selector: (row) => row.booking_code,
       sortable: true,
+      wrap: true,
     },
     {
       name: 'Họ và tên',
       selector: (row) => row.name,
+      wrap: true,
     },
     {
       name: 'Tiền chi phí',
       selector: (row) => formatMoney(row.total_expense),
+      wrap: true,
     },
     {
       name: 'Tiền đã nộp',
       selector: (row) => formatMoney(row.amount),
+      wrap: true,
     },
     {
       name: 'Tiền miễn giảm',
       selector: (row) => formatMoney(row.total_discount),
+      wrap: true,
     },
     {
       name: 'Trạng thái phiếu',
       selector: (row) => row.stage,
       grow: 0.7,
+      wrap: true,
     },
     {
       name: 'Hình thức thanh toán',
@@ -66,6 +72,7 @@ const Payment = () => {
       name: 'Ngày thanh toán',
       selector: (row) => formatDate(row.date),
       grow: 0.8,
+      wrap: true,
     },
   ];
   return (
