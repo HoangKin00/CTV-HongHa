@@ -41,7 +41,7 @@ const Payment = () => {
     },
     {
       name: 'Tiền đã nộp',
-      selector: (row) => formatMoney(row.total_amount),
+      selector: (row) => formatMoney(row.amount),
     },
     {
       name: 'Tiền miễn giảm',
