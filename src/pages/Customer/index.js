@@ -24,27 +24,33 @@ const Customer = () => {
       name: 'Họ và tên',
       selector: (row) => row.name,
       sortable: true,
+      grow: 0.5,
+      wrap: true,
     },
     {
       name: 'Số điện thoại 1',
       selector: (row) => row.phone1,
+      grow: 0.5,
     },
     {
       name: 'Số điện thoại 2',
       selector: (row) => (row.phone2 ? row.phone2 : 'Trống'),
+      grow: 0.5,
     },
     {
       name: 'Giới tính',
       selector: (row) => row.gender,
-      grow: 0.6
+      grow: 0.25,
     },
     {
       name: 'Ngày sinh',
       selector: (row) => formatDate(row.birthday),
+      grow: 0.25,
     },
     {
       name: 'Địa chỉ',
       selector: (row) => row.address,
+      wrap: true,
     },
   ];
   return (

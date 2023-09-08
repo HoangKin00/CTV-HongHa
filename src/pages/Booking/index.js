@@ -32,14 +32,17 @@ const Booking = () => {
       name: 'Mã booking',
       selector: (row) => row.code,
       sortable: true,
+      wrap: true,
     },
     {
       name: 'Họ và tên',
       selector: (row) => row.name,
+      wrap: true,
     },
     {
       name: 'Trạng thái',
       selector: (row) => row.status,
+      wrap: true,
     },
     {
       name: 'Ngày đến cửa',
